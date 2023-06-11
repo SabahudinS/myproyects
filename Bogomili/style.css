@@ -1,0 +1,196 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* postavka Home stranice*/
+
+.glavna {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+        'header header'
+        'nav content'
+        'nav footer';
+
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+
+header,
+footer,
+main,
+nav {
+    color: #fff;
+    background: rgb(111, 155, 113);
+    padding: 20px;
+    border: 1px solid skyblue;
+}
+
+header {
+    grid-area: header;
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+}
+
+#naslov {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#naslov img {
+    width: 140px;
+    height: 200px;
+    float: left;
+    margin-left: 10px;
+    padding: 20px;
+}
+
+#herald {
+    width: 100%;
+}
+
+#herald {
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
+}
+
+#herald>img {
+    width: 140px;
+    height: 180px;
+    border: 2px solid #000;
+}
+
+#herald img:hover {
+    scale: 2;
+}
+
+
+nav {
+    grid-area: nav;
+}
+
+main {
+    grid-area: content;
+}
+
+
+footer {
+    grid-area: footer;
+    text-align: left;
+}
+
+
+h3 {
+    padding: 5px 10px;
+}
+
+.kamen {
+    width: 150px;
+    height: 200px;
+    padding: 10px;
+    float: left;
+}
+
+.grob {
+    background-color: rgb(162, 130, 97);
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    justify-content: flex-start;
+    border: 1px solid skyblue;
+    margin-bottom: 10px;
+}
+
+
+.grob p {
+    padding: 5px;
+}
+
+
+.active {
+    background-color: #fff;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li a:hover {
+    color: red;
+}
+
+li :not(.active) {
+    color: darkblue;
+}
+
+.kamen:hover {
+    transform: scale(2);
+}
+
+/**Responsive layout:
+Media Queries: Koriste se da naprave webpage responsive. Kada hoćemo da prilagodimo 
+prikaz stranice na drugim uređajima onda koristimo media quaries. 
+Sve što trebamo je odrediti koji dio ekrana želimo da css aktivira. 
+Idemo na max-width. 
+Za mobilne je to 576px, tablet 768px, desktop 992px, large desktops 1200px +.*/
+
+
+/* media setup za Home*/
+@media only screen and (max-width: 768px) {
+    header {
+        grid-area: header;
+        font-size: 18px;
+        text-align: center;
+        position: relative;
+
+    }
+
+    .glavna {
+        grid-template-areas:
+            'header header'
+            'nav content'
+            'nav footer';
+
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr 1fr 70px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #herald {}
+
+    header {
+        grid-area: header;
+        font-size: 16px;
+        text-align: center;
+        position: relative;
+    }
+
+    .glavna {
+        grid-template-areas:
+            'header'
+            'nav'
+            'content'
+            'footer';
+
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+
+}
